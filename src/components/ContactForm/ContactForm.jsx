@@ -18,7 +18,7 @@ export const ContactForm = () => {
           }
 e.target.reset();}
 return (
-    <FormControl className={css.formContact} onSubmit={handleSubmit} >
+    <form className={css.formContact} onSubmit={handleSubmit} >
       <FormLabel htmlFor="name">
         Name
         <Input
@@ -40,7 +40,7 @@ return (
         />
       </FormLabel>
       <Button type="submit" mt="8">Add Contact</Button>
-    </FormControl>
+    </form>
   );
 };
 export default ContactForm;
