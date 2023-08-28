@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { selectFilter } from "../../redux/selectors";
-import { setStatusFilter } from "../../redux/filtersSlice";
+import { selectFilter } from "../../redux/contacts/selectors";
+import { setStatusFilter } from "../../redux/contacts/filtersSlice";
 import css from './Filter.module.css';
+import { FormLabel, Input } from "@chakra-ui/react";
 export const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
@@ -11,15 +12,15 @@ export const Filter = () => {
     dispatch(setStatusFilter(newFilter)); }
 
   return (
-    <label className={css.filterLabel}>
+    <FormLabel className={css.filterLabel}>
       Find contacts by name
-      <input
+      <Input
         type="text"
         value={filter}
         onChange={handleFilterChange}
         placeholder="Search contacts"
       />
-    </label>
+    </FormLabel>
   );
 };
 export default Filter;

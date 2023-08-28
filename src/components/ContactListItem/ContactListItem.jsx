@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/operations";
+import { deleteContact } from "../../redux/contacts/operations";
+import { Button } from '@chakra-ui/react';
 export const ContactListItem = ({contact}) => {
   const dispatch = useDispatch();
 const handleDelete = () => dispatch(deleteContact(contact.id));
 return (
     <li>
       {contact.name} : {contact.phone}
-      <button onClick={handleDelete}>Delete</button>
+      <Button onClick={handleDelete}>Delete</Button>
     </li>
   );
 };
