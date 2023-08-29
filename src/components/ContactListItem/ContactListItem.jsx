@@ -2,21 +2,24 @@ import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import { Button } from '@chakra-ui/react';
-export const ContactListItem = ({contact}) => {
+import { PhoneIcon} from '@chakra-ui/icons'
+export const ContactListItem = ({id, contact}) => {
   const dispatch = useDispatch();
-const handleDelete = () => dispatch(deleteContact(contact.id));
+const handleDelete = () => dispatch(deleteContact(id));
 return (
-    <li>
+    <div>
+      <PhoneIcon color='green.500' mr='3'/>
       {contact.name} : {contact.phone}
       <Button onClick={handleDelete}>Delete</Button>
-    </li>
+    </div>
   );
 };
 ContactListItem.propTypes = {
+  id:PropTypes.string.isRequired,
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }).isRequired,
 };
 export default ContactListItem;
